@@ -6,5 +6,7 @@ services:
             - database.env
         volumes:
             - pgdata:/var/lib/postgresql/data
+    import:
+        build: ../osm2pgsql
 volumes:
     pgdata: {}
