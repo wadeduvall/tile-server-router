@@ -6,7 +6,12 @@ services:
             - database.env
         volumes:
             - pgdata:/var/lib/postgresql/data
+            - ./init.sql:/docker-entrypoint-initdb.d/init.sql                     
     import:
         build: ../osm2pgsql
+        env_file:
+            - database.env
+        depends_on:
+            - postgis
 volumes:
     pgdata: {}
