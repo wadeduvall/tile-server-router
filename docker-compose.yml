@@ -8,11 +8,13 @@ services:
             - pgdata:/var/lib/postgresql/data
             - ./init.sql:/docker-entrypoint-initdb.d/init.sql                     
     renderer:
-        build: ../renderer
+        build: https://github.com/wad209/renderer.git
         env_file:
-            - database.env
+            - client.env
+        volumes:
+            - mod_tile:/var/lib/mod_tile
         ports:
-            - "192.168.1.47:80:80"
+            - "80:80"
         depends_on:
             - postgis
 
@@ -20,7 +22,10 @@ services:
         build: ../osm2pgsql
         env_file:
             - database.env
+        volumes:
+            - mod_tile:/var/lib/mod_tile
         depends_on:
             - postgis
 volumes:
     pgdata: {}
+    mod_tile: {}
