@@ -19,7 +19,7 @@ services:
             - postgis
 
     import:
-        build: ../osm2pgsql
+        build: https://github.com/wad209/osm2pgsql.git
         env_file:
             - database.env
         volumes:
