@@ -13,9 +13,10 @@ Assuming you have [docker-compose](https://github.com/docker/compose) installed,
 first build the necessary images and start the PostGIS container.
 
     docker-compose build
-    docker-compose up postgis -d
+    docker-compose up postgis 
 
-Then, you can import any PBF by specifying a URL:
+Once the initial startup for the postgis container is done, ctr-c the
+container. Now you can import any PBF by specifying a URL:
 
     docker-compose run --rm \
     -e IMPORT=true \
@@ -30,6 +31,10 @@ It's also possible to mount the a PBF and poly files:
     -v virginia-latest.osm.pbf:/data.osm.pbf \
     -v virginia.poly:/data.poly \
     o2pgsql import.sh
+
+Then, you can bring up the whole system:
+
+    docker-compose up -d
 
 # Options for importing
 
