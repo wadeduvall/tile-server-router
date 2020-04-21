@@ -45,3 +45,10 @@ If you wish to append to existing data, simply do:
     -e PBF=http://download.geofabrik.de/north-america/us/virginia-latest.osm.pbf \
     -e POLY=http://download.geofabrik.de/north-america/us/virginia.poly \
     import ./import.sh
+
+# Changing the PostGIS server information
+
+The PostGIS container database configuration information is set in file
+database.env. It's possible to change this information if you wish, but you'll
+also have to update the information in client.env so the renderer knows were to
+look for the data.

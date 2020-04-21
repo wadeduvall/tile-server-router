@@ -6,10 +6,13 @@ services:
             - database.env
         volumes:
             - pgdata:/var/lib/postgresql/data
-            - ./init.sql:/docker-entrypoint-initdb.d/init.sql                     
+            - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+        restart: always
+
     renderer:
         build: https://github.com/wad209/renderer.git
         env_file:
+            - database.env
             - client.env
         volumes:
             - mod_tile:/var/lib/mod_tile
@@ -17,6 +20,7 @@ services:
             - "80:80"
         depends_on:
             - postgis
+        restart: always
 
     import:
         build: https://github.com/wad209/osm2pgsql.git
