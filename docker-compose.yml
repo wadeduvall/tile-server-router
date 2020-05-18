@@ -21,7 +21,7 @@ services:
         restart: always
 
     router:
-        build: https://github.com/wad209/osrm-backend
+        build: https://github.com/wad209/osrm-backend.git
         volumes:
             - routedata:/data
         env_file:
