@@ -1,4 +1,4 @@
-# tile-server
+# tile-server-router
 A modual tile server based heavily upon [switch2osm](https://switch2osm.org/)
 docker image and examples.
 
