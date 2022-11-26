@@ -12,8 +12,8 @@ server](https://download.geofabrik.de/)
 Assuming you have [docker-compose](https://github.com/docker/compose) installed,
 first build the necessary images and start the PostGIS container.
 
-    docker-compose build
-    docker-compose up postgis 
+    docker compose build
+    docker compose up postgis 
 
 Once the initial startup for the postgis container is done, ctr-c the
 container. Now you can import from any PBF url using
@@ -22,13 +22,13 @@ container. Now you can import from any PBF url using
 
 Then, you can bring up the whole system:
 
-    docker-compose up -d
+    docker compose up -d
 
 # Options for importing
 
 If you wish to append to existing data, simply do:
 
-    docker-compose run --rm \
+    docker compose run --rm \
     -e UPDATE=true \
     -e PBF=http://download.geofabrik.de/north-america/us/virginia-latest.osm.pbf \
     -e POLY=http://download.geofabrik.de/north-america/us/virginia.poly \
